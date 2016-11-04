@@ -65,10 +65,18 @@ static void MTNetworkAvailabilityContextRelease(const void *info)
         
         [[MTNetworkAvailability networkAvailabilityQueue] dispatchOnQueue:^
         {
-            struct sockaddr_in zeroAddress;
+            
+            struct sockaddr_in6 zeroAddress;
             bzero(&zeroAddress, sizeof(zeroAddress));
-            zeroAddress.sin_len = sizeof(zeroAddress);
-            zeroAddress.sin_family = AF_INET;
+            zeroAddress.sin6_len = sizeof(zeroAddress);
+            zeroAddress.sin6_family = AF_INET6;
+            
+            /*
+                struct sockaddr_in zeroAddress;
+                bzero(&zeroAddress, sizeof(zeroAddress));
+                zeroAddress.sin_len = sizeof(zeroAddress);
+                zeroAddress.sin_family = AF_INET;
+           */
             
             _reachability = SCNetworkReachabilityCreateWithAddress(kCFAllocatorDefault, (const struct sockaddr *)&zeroAddress);
             if (_reachability != NULL)
