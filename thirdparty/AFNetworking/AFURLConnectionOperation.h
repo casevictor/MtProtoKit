@@ -30,6 +30,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define _AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES_ 1
+
 /**
  Indicates an error occured in AFNetworking.
  

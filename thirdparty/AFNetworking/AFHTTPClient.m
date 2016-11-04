@@ -64,7 +64,7 @@ typedef id AFNetworkReachabilityRef;
 typedef void (^AFNetworkReachabilityStatusBlock)(BOOL isNetworkReachable);
 typedef void (^AFCompletionBlock)(void);
 
-static NSUInteger const kAFHTTPClientDefaultMaxConcurrentOperationCount = 5;
+static NSUInteger const kAFHTTPClientDefaultMaxConcurrentOperationCount = 20;
 
 static NSString * AFBase64EncodedStringFromString(NSString *string) {
     NSData *data = [NSData dataWithBytes:[string UTF8String] length:[string lengthOfBytesUsingEncoding:NSUTF8StringEncoding]];
